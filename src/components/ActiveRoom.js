@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
+
 class RoomList extends Component {
 	constructor(props) {
 		super(props);
 		this.state= {
-			rooms: [], 
-			newRoomName: ''
+			rooms: []
 		};
 
 		this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -32,9 +32,6 @@ class RoomList extends Component {
 			this.setState({ newRoomName: e.target.value })
 		}
 
-		handleRoomClick(room){
-			this.props.activeRoom(room);
-		}
 
    render() {
    	return (
@@ -42,7 +39,7 @@ class RoomList extends Component {
         	<ul>
         		{this.state.rooms.map(( room, index ) =>{
         			return (
-        				<li key={ index }> { room.name } onClick={(e) => this.handleRoomClick()} </li>
+        				<li key={ index }> { room.name } </li>
         			)
         		})}
         	</ul>
